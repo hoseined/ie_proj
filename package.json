@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "front_start": "npm start --prefix net",
     "front_install": "npm install --prefix net",
-    "dev": "concurrently 'npm run server' 'npm run client'",
+    "dev": "npm run net",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix net && npm run build --prefix net"
   },
   "dependencies": {
