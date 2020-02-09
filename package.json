@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "npm install --save cors && node ./bin/www",
     "front_start": "npm start --prefix net",
     "front_install": "npm install --prefix net",
     "dev": "npm run net",
