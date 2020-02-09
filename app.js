@@ -10,11 +10,12 @@ var secret = "some random string used for jwt"
 var User = require('./models/User')
 
 var app = express();
-var admin_urls = ['/forms/create/', '/add_polygon/', '/get_all_forms/submited/']
+var admin_urls = ['/forms/create/', '/add_polygon/','/get_all_forms/submited/' ]
+var cors = require('cors')
 
-
-
+app.use(cors())
 app.use(function(req, res, next){
+  console.log(admin_urls.indexOf(req.url),req.url)
   if (req.url === '/register/' || req.url === '/get_auth_token/'){
     next()
     return
@@ -25,7 +26,8 @@ app.use(function(req, res, next){
   try {
     const decoded = jwt.verify(token, secret);
     req.user = decoded
-    if (admin_urls.indexOf(req.url) !== -1 || req.url.match('/get_all_forms/submited/.+') !== null){
+    console.log(req.url,admin_urls)
+    if (admin_urls.indexOf(req.url) !== -1 ||req.url.match('/get_all_forms/submited/.+')){
       if (!req.user.is_staff){
         res.status(401).send("you are not allowed to access this view");
         return

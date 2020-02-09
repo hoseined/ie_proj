@@ -28,7 +28,7 @@ class Table extends Component {
     console.log(this.props)
     axios({
         method: 'get',
-        url: '//localhost:3000/get_all_forms/submited/'+`${this.props.match.params.id}/`,
+        url: '//localhost:4000/get_all_forms/submited/'+`${this.props.match.params.id}/`,
         headers: {
           Authorization:token
         }

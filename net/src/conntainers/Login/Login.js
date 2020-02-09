@@ -97,7 +97,7 @@ class Login extends Component {
         event.preventDefault();
         console.log('hi')
         this.setState( { loading: true } );
-        axios.post('//localhost:3000/get_auth_token/',{username:this.state.fields.username.value,password:this.state.fields.password.value})
+        axios.post('//localhost:4000/get_auth_token/',{username:this.state.fields.username.value,password:this.state.fields.password.value})
             .then( response => {
                 console.log(this.props)
                 localStorage.setItem('token',response.data.token)

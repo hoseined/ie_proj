@@ -40,6 +40,19 @@ router.get('/forms/:polygon_id/', async function(req, res, next) {
   }
 })
 
+router.get('/forms/:polygon_id/', async function(req, res, next) {
+  var all_polygons = await GeoPolygon.find({_id: req.params.polygon_id})
+  var forms = []
+  for (var polygon of all_polygons){
+    for (var form_id of polygon.forms){
+      var temp = await Form.find({_id: form_id, is_base_form: false})
+      temp.area = polygon
+      forms.push(temp)
+    }
+    res.send(forms)
+  }
+})
+
 router.get('/get_all_forms/:base/', async function(req, res, next) {
   base_form = undefined
   switch (req.params.base){
@@ -71,6 +84,10 @@ router.get('/get_all_forms/submited/:title/', async function(req, res, next) {
     }
     form.fields = serialized_fields
   }
+  if(result.length===0){
+    res.statusCode = 404
+    res.send("No record found")
+  }
   res.send(result)
 })
 
@@ -83,19 +100,16 @@ var find_value_of_field = (field_name, data) => {
 }
 
 
+
 router.post('/submit_form/', async function(req, res, next) {
   var location = req.body.location
   var polygons = await GeoPolygon.find({})
   var base_form = await Form.findOne({is_base_form: true, title: req.body.title})
-  if (!base_form){
-    res.status(400).send("no form with the given template exists.")
-    return
-  }
   var fields = []
   for (var field_id of base_form.fields){
     var field = await Field.findOne({_id: field_id})
     var value = find_value_of_field(field.name, req.body.fields)
-    var db_field = await Field.create({'name': field.name, 'value': value})
+    var db_field = await Field.create({'name': field.name,'type':field.type, 'value': value})
     fields.push(db_field._id)
   }
   for (polygon of polygons){
@@ -154,17 +168,9 @@ router.post('/get_auth_token/', async (req, res, next) => {
     return
   }
   else {
+    res.statusCode=404;
     res.send("user doesnt exist")
   }
-})
-
-
-router.get('/flush/', async (req, res, next) => {
-  Form.deleteMany({}, function(err){
-    console.log(err)
-  })
-  Field.deleteMany({})
-  res.send("success")
 })
 
 

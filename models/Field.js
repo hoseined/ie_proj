@@ -10,10 +10,7 @@ const fieldSchema = new mongoose.Schema(
     value: {
       type: mixed,
     },
-    display_type: {
-      type: String,
-    },
-    base_form_type: {
+    type: {
       type: String,
     },
   }

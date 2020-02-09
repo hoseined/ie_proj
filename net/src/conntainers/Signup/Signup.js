@@ -123,7 +123,7 @@ class Signup extends Component {
         let is_staff = this.state.fields.role.value.trim().toLocaleLowerCase()==="field agent" ? false :true
         console.log(is_staff)
         localStorage.setItem('isAdmin',is_staff)
-        axios.post( '//localhost:3000/register/',{username:this.state.fields.username.value,password:this.state.fields.password.value,email:this.state.fields.email.value,is_staff:is_staff})
+        axios.post( '//localhost:4000/register/',{username:this.state.fields.username.value,password:this.state.fields.password.value,email:this.state.fields.email.value,is_staff:is_staff})
             .then( response => {
                 console.log(response)
                 localStorage.setItem('token',response.data.token)
