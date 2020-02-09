@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm init . && node ./bin/www",
+    "start": "npm init && node ./bin/www",
     "front_start": "npm init net && npm start --prefix net",
     "front_install": "npm install --prefix net",
     "dev": "concurrently 'npm run server' 'npm run client'",
