@@ -1,0 +1,65 @@
+.removeButton {
+    background-color: rgb(226, 21, 21);
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 1%;
+    margin-left: 10px;
+  }
+.tablescroll{
+    overflow:scroll;
+    height: 75%;
+}
+.title {
+    text-align: center;
+    font-family: arial, sans-serif;
+  }
+  
+.customTable {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+.customTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    cursor: pointer;
+  }
+  .customTable th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+.customTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+.customTable tr:hover {background-color: #ddd;}
+  
+.customTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    position: sticky;
+    top : 0;
+    text-align: center;
+    background-color:  rgb(103, 108, 112);
+    color: white;
+  }
+  .Button {
+    background-color: transparent;
+    border: none;
+    color: #5C9210;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    padding: 10px;
+    margin: 10px , 0px ,20px , 0px;
+    font-weight: bold;
+}
+.Link{
+  text-align: center;
+}

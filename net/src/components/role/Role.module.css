@@ -1,0 +1,15 @@
+.Role {
+    width: 50%;
+    padding: 16px;
+    text-align: center;
+    border: 1px solid #eee;
+    box-shadow: 0 2px 3px #ccc;
+    margin: 1% auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+.Role:hover,
+.Role:active {
+    background-color: rgb(103, 108, 112);
+}
+

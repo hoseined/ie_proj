@@ -1,0 +1,50 @@
+ .forms div {
+  margin: 20px auto;
+  width: 80%;
+  height: 100%;
+  text-align: left;
+  }
+   
+.forms h2 {
+    font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
+    padding: 0;
+  }
+   
+.forms ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+   
+.forms li {
+    font: 200 15px/1.5 Helvetica, Verdana, sans-serif;
+    border-bottom: 1px solid #ccc;
+    padding-left: none;
+  }
+   
+.forms li:last-child {
+    border: none;
+  }
+   
+.forms li a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    width: 30%;
+   
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+  }
+   
+.forms li a:hover {
+    font-size: 20px;
+    background: #f6f6f6;
+  }
+@media (max-width : 700px){
+    .forms li a{
+      width: 45%;
+    }
+}
